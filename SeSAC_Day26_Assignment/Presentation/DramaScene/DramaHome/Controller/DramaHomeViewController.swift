@@ -41,7 +41,7 @@ final class DramaHomeViewController: BaseViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-//    callRequest()
+    //    callRequest()
     refresh()
   }
   
@@ -124,8 +124,8 @@ extension DramaHomeViewController {
     navigationController?.pushViewController(vc, animated: true)
   }
   
-  @objc func routeToDetail() {
-    let vc = DramaDetailViewController()
+  @objc func routeToDetail(id: Int) {
+    let vc = DramaDetailViewController(dramaId: id)
     navigationController?.pushViewController(vc, animated: true)
   }
 }
@@ -160,15 +160,10 @@ extension DramaHomeViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     print(dataSource[indexPath.section].title)
   }
-  
-  ///
+
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     switch dataSource[safe: section] {
-    case .popular:
-      return 1
-    case .topRated:
-      return 1
-    case .trend:
+    case .popular, .topRated, .trend:
       return 1
     case .none:
       return 0
@@ -196,7 +191,7 @@ extension DramaHomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
   }
   
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { 120 }
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { 200 }
   
   func numberOfSections(in tableView: UITableView) -> Int { 3 }
   
@@ -215,26 +210,29 @@ extension DramaHomeViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 // MARK: 컬렉션 뷰
-extension DramaHomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDataSourcePrefetching {
+extension DramaHomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
   
-  /// 아이템 사이즈
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    .init(width: 200, height: 200)
+  // MARK: 델리게이트
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let tag = collectionView.tag
+    let itemList = itemLists[tag]
+    let item = itemList[indexPath.item]
+    let dramaId = item.id
+    routeToDetail(id: dramaId)
   }
   
-  func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-    
-  }
+  // MARK: 데이터 소스
   
   /// 섹션 아이템의 갯수
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     let tag = collectionView.tag
     let itemList = itemLists[tag]
     return itemList.count
+  }
+  
+  /// 아이템 사이즈
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    .init(width: 200, height: 200)
   }
   
   /// 셀 아이템

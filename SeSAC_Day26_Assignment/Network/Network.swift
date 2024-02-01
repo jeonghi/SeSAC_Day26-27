@@ -11,7 +11,7 @@ import Alamofire
 struct Network<T: TargetType> {}
 
 extension Network {
-  func request<R>(_ target: T, responseType: R.Type, completion: @escaping ((Result<TMDbAPIResponse<R>?, NetworkError>) -> Void)) where T: TargetType, R: Decodable {
+  func request<R>(_ target: T, responseType: R.Type, completion: @escaping ((Result<R?, NetworkError>) -> Void)) where T: TargetType, R: Decodable {
     let decoder = JSONDecoder()
     decoder.dateDecodingStrategy = .iso8601
     
@@ -25,7 +25,7 @@ extension Network {
     #endif
     
     AF.request(urlRequest, interceptor: nil)
-      .responseDecodable(of: TMDbAPIResponse<R>.self) { res in
+      .responseDecodable(of: R.self) { res in
         switch res.result {
         case .success(let success):
           completion(.success(success))

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B5956742B6BF1330085F573 /* AggregateCreditsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5956732B6BF1330085F573 /* AggregateCreditsEntity.swift */; };
 		5B6554342B6A92E6001815F5 /* UIView+addSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6554332B6A92E6001815F5 /* UIView+addSubviews.swift */; };
 		5B6554362B6A9638001815F5 /* DramaSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6554352B6A9638001815F5 /* DramaSearchViewController.swift */; };
 		5B742C4F2B69CF580083E804 /* TMDbAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B742C4E2B69CF580083E804 /* TMDbAPIResponse.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B5956732B6BF1330085F573 /* AggregateCreditsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregateCreditsEntity.swift; sourceTree = "<group>"; };
 		5B6554332B6A92E6001815F5 /* UIView+addSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addSubviews.swift"; sourceTree = "<group>"; };
 		5B6554352B6A9638001815F5 /* DramaSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DramaSearchViewController.swift; sourceTree = "<group>"; };
 		5B742C4E2B69CF580083E804 /* TMDbAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDbAPIResponse.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				5B742C642B6A0F4E0083E804 /* TVShowEntity.swift */,
+				5B5956732B6BF1330085F573 /* AggregateCreditsEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 			isa = PBXGroup;
 			children = (
 				5B9D9FE52B6917B600A4642F /* Network.swift */,
+				5B742C4A2B69CECF0083E804 /* Entity */,
 				5B742C4B2B69CF260083E804 /* Model */,
 				5B9D9FE72B69186D00A4642F /* Error */,
 				5BD924632B68EF5E0027B869 /* API */,
@@ -470,7 +474,6 @@
 				5B742C7D2B6A5A7A0083E804 /* Presentation */,
 				5B742C6D2B6A2C000083E804 /* Extension */,
 				5B742C582B69E8FB0083E804 /* Service */,
-				5B742C4A2B69CECF0083E804 /* Entity */,
 				5BD924582B68EEF50027B869 /* Assets.xcassets */,
 				5BD9245D2B68EEF50027B869 /* Info.plist */,
 				5B742CA82B6A6F580083E804 /* dev.xcconfig */,
@@ -599,6 +602,7 @@
 				5B9D9FE92B69187800A4642F /* NetworkError.swift in Sources */,
 				5B9D9FDD2B690CB900A4642F /* TargetType.swift in Sources */,
 				5B7F97FA2B6B855A005359C9 /* DramaGroupCell.swift in Sources */,
+				5B5956742B6BF1330085F573 /* AggregateCreditsEntity.swift in Sources */,
 				5B7F97F52B6B6B99005359C9 /* DramaDescriptionCell.swift in Sources */,
 				5B742CB72B6A73C00083E804 /* Style.swift in Sources */,
 				5B742CA52B6A6A830083E804 /* DramaDetailViewController.swift in Sources */,

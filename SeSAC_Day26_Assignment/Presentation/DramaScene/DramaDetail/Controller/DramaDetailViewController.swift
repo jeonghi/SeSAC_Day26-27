@@ -9,15 +9,35 @@ import UIKit
 import Then
 
 final class DramaDetailViewController: BaseViewController {
- 
+  
+  // MARK: Dependency
+  var tvService: TVService { AppService.apiService.tvService }
+  
+  var dramaId: Int?
+
+  
+  init(dramaId: Int? = nil) {
+    self.dramaId = dramaId
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  required init?(coder: NSCoder) {
+    super.init(coder: coder)
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+  // MARK: Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    if let dramaId { callRequest(dramaId) }
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
   }
   
+  
+  // MARK: Base Configuration
   override func configHierarchy() {
     
   }
@@ -27,6 +47,52 @@ final class DramaDetailViewController: BaseViewController {
   }
   
   override func configView() {
-    
+    navigationItem.title = "드라마 상세보기"
+  }
+}
+
+extension DramaDetailViewController {
+  var callRequest: (Int) -> Void {
+    {
+      self.isLoading = true
+      let group = DispatchGroup()
+      
+      group.enter()
+      self.tvService.getTVDetails(id: $0) { res in
+        switch res {
+        case .success(let success):
+          break
+        case .failure(let error):
+          break
+        }
+        group.leave()
+      }
+      
+      group.enter()
+      self.tvService.getTVAggregateCredits(id: $0) { res in
+        switch res {
+        case .success(let success):
+          break
+        case .failure(let error):
+          break
+        }
+        group.leave()
+      }
+      
+      group.enter()
+      self.tvService.getTVRecommendations(id: $0) { res in
+        switch res {
+        case .success(let success):
+          break
+        case .failure(let error):
+          break
+        }
+        group.leave()
+      }
+      
+      group.notify(queue: .main){
+        self.isLoading = false
+      }
+    }
   }
 }
