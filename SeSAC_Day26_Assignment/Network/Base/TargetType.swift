@@ -23,7 +23,7 @@ extension TargetType {
     
     /// 일단 임시 방편... 시간날때 interceptor 로직 분리시켜야함.
     /// 으악 추상화는 너무 으려워 0 ~ 0
-    urlRequest.setValue("\(AuthenticationType.bearer.rawValue) \(Constants.accessToken)", forHTTPHeaderField: HTTPHeaderField.authentication.rawValue)
+    urlRequest.setValue("\(AuthenticationType.bearer.rawValue) \(AppConfiguration.shared.accessToken)", forHTTPHeaderField: HTTPHeaderField.authentication.rawValue)
     
     switch params {
     case .query(let request):

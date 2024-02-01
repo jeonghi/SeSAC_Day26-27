@@ -25,7 +25,7 @@ final class AppAppearance {
     
     /// 타이틀 텍스트 속성 굵게 설정
     let titleTextAttributes: [NSAttributedString.Key: Any] = [
-      .font: Style.Foundation.Font.systemFont16,
+      .font: Style.Foundation.Font.subheadline,
       .foregroundColor: Style.Foundation.Color.tintColor
     ]
     

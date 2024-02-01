@@ -17,11 +17,11 @@ struct ButtonStyle {
   let radius: CGFloat
   
   static let primary = ButtonStyle(
-    activeTintColor: ColorStyle.tintColor,
-    activeBackgroundColor: ColorStyle.pointColor,
-    inactiveTintColor: ColorStyle.inactiveTintColor,
-    inactiveBackgroundColor: ColorStyle.inactiveBackgroundColor,
-    font: FontStyle.systemFont16,
+    activeTintColor:  Style.Foundation.Color.tintColor,
+    activeBackgroundColor: Style.Foundation.Color.pointColor,
+    inactiveTintColor: Style.Foundation.Color.inactiveTintColor,
+    inactiveBackgroundColor: Style.Foundation.Color.inactiveBackgroundColor,
+    font: Style.Foundation.Font.headline,
     radius: 6.0
   )
 }

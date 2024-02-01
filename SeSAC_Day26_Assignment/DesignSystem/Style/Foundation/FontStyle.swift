@@ -8,7 +8,6 @@
 import UIKit
 
 enum FontStyle {
-  
   static let title1 = customFont(weight: .Bold, size: 28)
   static let title2 = customFont(weight: .Bold, size: 22)
   static let headline = customFont(weight: .Medium, size: 18)
@@ -26,7 +25,10 @@ enum FontStyle {
     case Medium
   }
   
-  static func customFont(family: FontFamily = .GmarketSansTTF, weight: FontWeight, size: CGFloat) -> UIFont? {
-    UIFont(name: "\(family.rawValue)\(weight.rawValue)", size: size)
+  static func customFont(family: FontFamily = .GmarketSansTTF, weight: FontWeight, size: CGFloat) -> UIFont {
+    guard let font = UIFont(name: "\(family.rawValue)\(weight.rawValue)", size: size) else {
+      fatalError("Font Error")
+    }
+    return font
   }
 }

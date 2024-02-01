@@ -21,7 +21,7 @@ enum TvAPI {
 extension TvAPI: TargetType {
 
   var baseURL: String {
-    return Constants.baseURL
+    return AppConfiguration.shared.baseURL
   }
   
   var method: HTTPMethod {
