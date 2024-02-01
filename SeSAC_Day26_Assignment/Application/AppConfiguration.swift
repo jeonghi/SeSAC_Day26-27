@@ -12,6 +12,7 @@ final class AppConfiguration {
   static let shared = AppConfiguration()
   
   private init() {}
+  
   lazy var accessToken: String = {
     return Bundle.main.object(forInfoDictionaryKey: "ACCESS_TOKEN") as? String ?? ""
   }()
@@ -20,8 +21,7 @@ final class AppConfiguration {
     return Bundle.main.object(forInfoDictionaryKey: "BASE_URL") as? String ?? ""
   }()
   
-  // TMDb 구성 정보를 저장하는 변수
-  var imageBaseURL: String?
+  var imageBaseURL: String = "https://image.tmdb.org/t/p/w500"
 }
 
 extension AppConfiguration {}

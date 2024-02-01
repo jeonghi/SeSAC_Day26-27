@@ -8,7 +8,6 @@
 import UIKit
 
 struct ButtonStyle {
-  
   let activeTintColor: UIColor
   let activeBackgroundColor: UIColor
   let inactiveTintColor: UIColor
@@ -17,7 +16,7 @@ struct ButtonStyle {
   let radius: CGFloat
   
   static let primary = ButtonStyle(
-    activeTintColor:  Style.Foundation.Color.tintColor,
+    activeTintColor: Style.Foundation.Color.tintColor,
     activeBackgroundColor: Style.Foundation.Color.pointColor,
     inactiveTintColor: Style.Foundation.Color.inactiveTintColor,
     inactiveBackgroundColor: Style.Foundation.Color.inactiveBackgroundColor,

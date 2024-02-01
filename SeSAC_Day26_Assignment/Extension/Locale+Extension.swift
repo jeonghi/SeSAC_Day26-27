@@ -9,17 +9,16 @@ import Foundation
 
 extension Locale {
   static var currentLanguageCode: String {
-    return Locale.current.language.languageCode?.identifier ?? "en"
+//    return Locale.current.language.languageCode?.identifier ?? "kr"
+    return "kr"
   }
   
-  static var currentCountryCode: String? {
-    return Locale.current.region?.identifier
+  static var currentCountryCode: String {
+//    return Locale.current.region?.identifier ?? "KR"
+    return "KR"
   }
   
   static var currentLanguageAndCountryCode: String {
-    if let countryCode = currentCountryCode {
-      return "\(currentLanguageCode)-\(countryCode)"
-    }
-    return currentLanguageCode
+    return "\(currentLanguageCode)-\(currentCountryCode)"
   }
 }

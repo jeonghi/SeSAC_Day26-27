@@ -20,13 +20,9 @@ enum TvAPI {
 
 extension TvAPI: TargetType {
 
-  var baseURL: String {
-    return AppConfiguration.shared.baseURL
-  }
+  var baseURL: String { return AppConfiguration.shared.baseURL }
   
-  var method: HTTPMethod {
-    return .get
-  }
+  var method: HTTPMethod { return .get }
   
   var path: String {
     switch self {
@@ -53,11 +49,16 @@ extension TvAPI: TargetType {
       return .none
     case .getPopularTVs(let language),
          .getTopRatedTVs(let language),
-         .searchTV(_, let language),
          .getTVDetails(_, let language),
          .getTVRecommendations(_, let language),
          .getTVAggregateCredits(_, let language):
       return .query(["language": language])
+    case let .searchTV(query, language):
+      return .query(["language": language, "query": query])
     }
+  }
+  
+  var headers: HTTPHeaders {
+    [HTTPHeaderField.authentication.rawValue: "\(AuthenticationType.bearer.rawValue) \(AppConfiguration.shared.accessToken)"]
   }
 }

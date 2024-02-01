@@ -8,14 +8,13 @@
 import UIKit
 
 class PosterImageView: UIImageView {
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
-    
     backgroundColor = .lightGray
     contentMode = .scaleAspectFill
     layer.cornerRadius = 12
     clipsToBounds = true
-    
   }
   
   required init?(coder: NSCoder) {

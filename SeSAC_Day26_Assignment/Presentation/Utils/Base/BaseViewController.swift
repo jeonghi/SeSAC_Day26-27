@@ -30,6 +30,7 @@ class BaseViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configBase()
+    view.backgroundColor = .clear
   }
   
   override func viewDidAppear(_ animated: Bool) {

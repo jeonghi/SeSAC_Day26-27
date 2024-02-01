@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TVAPIResponse<T: Decodable>: Decodable {
+struct TMDbAPIResponse<T: Decodable>: Decodable {
   let page: Int
   let results: T
   let totalPages: Int

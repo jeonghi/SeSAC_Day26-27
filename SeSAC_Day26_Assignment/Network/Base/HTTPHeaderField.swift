@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Alamofire
 
 enum HTTPHeaderField: String {
   case authentication = "Authorization"

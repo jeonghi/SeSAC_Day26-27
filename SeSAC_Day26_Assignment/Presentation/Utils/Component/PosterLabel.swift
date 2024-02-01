@@ -6,12 +6,9 @@
 //
 
 import UIKit
-import SnapKit
 import Then
 
-class PosterTitleLabel: UIView {
-  
-//  weak var titleLabel: UILabel
+class PosterLabel: UILabel {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -19,5 +16,9 @@ class PosterTitleLabel: UIView {
   
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
+  }
+  
+  override func configView() {
+    textAlignment = .left
   }
 }
