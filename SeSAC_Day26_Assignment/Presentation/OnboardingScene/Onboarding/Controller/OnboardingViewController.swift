@@ -24,15 +24,15 @@ class OnboardingViewController: BaseViewController {
   
   // MARK: Action
   @objc func tappedStartButton(_ sender: UIButton) {
-    routeToHome()
+    replaceRootToHome()
   }
 }
 
 // MARK: Navigator
 extension OnboardingViewController {
-  @objc func routeToHome(){
+  func replaceRootToHome(){
     let vc = DramaHomeViewController()
-    navigationController?.pushViewController(vc, animated: true)
+    view.window?.rootViewController = vc.wrapToNavVC()
   }
 }
 

@@ -20,9 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     /// 1) 아직 프로필 설정하지 않은 경우 -> 온보딩
     /// 2) 프로필 설정한 경우 -> 메인 탭
     
-    let rootViewController: UIViewController = DramaHomeViewController()
+    let rootViewController: UIViewController = UserDefaultManager.isFirstLaunch ? OnboardingViewController() : DramaHomeViewController()
     let navigationVC: UINavigationController = .init(rootViewController: rootViewController)
-    
     window?.rootViewController = navigationVC // 특정 ViewController
     window?.makeKeyAndVisible()
   }
