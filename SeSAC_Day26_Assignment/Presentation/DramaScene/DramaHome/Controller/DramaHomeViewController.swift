@@ -254,6 +254,5 @@ extension DramaHomeViewController: UICollectionViewDelegate, UICollectionViewDat
 
 @available(iOS 17.0, *)
 #Preview {
-  let nc = UINavigationController(rootViewController: DramaHomeViewController())
-  return nc
+  DramaHomeViewController().wrapToNavVC()
 }

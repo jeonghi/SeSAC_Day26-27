@@ -27,6 +27,7 @@ class DramaGroupCell: UITableViewCell {
   ).then {
     $0.backgroundColor = Style.Foundation.Color.clear
     $0.isPagingEnabled = true
+    $0.showsVerticalScrollIndicator = false
   }
   
   required init?(coder: NSCoder) {

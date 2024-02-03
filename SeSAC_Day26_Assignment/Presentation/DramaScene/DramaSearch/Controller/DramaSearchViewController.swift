@@ -105,8 +105,7 @@ extension DramaSearchViewController {
   }
 }
 
-//@available(iOS 17.0, *)
-//#Preview {
-//  let nc = UINavigationController(rootViewController: DramaSearchViewController())
-//  return nc
-//}
+@available(iOS 17.0, *)
+#Preview {
+  DramaSearchViewController().wrapToNavVC()
+}

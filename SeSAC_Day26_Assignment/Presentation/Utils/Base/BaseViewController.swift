@@ -30,7 +30,7 @@ class BaseViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configBase()
-    view.backgroundColor = .clear
+    view.backgroundColor = .black
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -44,3 +44,6 @@ extension BaseViewController: BaseConfiguration {
   func configLayout() {}
   func configHierarchy() {}
 }
+
+
+

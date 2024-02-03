@@ -7,6 +7,7 @@
 
 import UIKit
 import Then
+import SnapKit
 
 final class DramaDetailViewController: BaseViewController {
   
@@ -15,6 +16,12 @@ final class DramaDetailViewController: BaseViewController {
   
   var dramaId: Int?
 
+  var posterImage = PosterImageView(frame: .zero)
+  
+  override func loadView() {
+    super.loadView()
+    self.view = UIView().then{$0.backgroundColor = .black}
+  }
   
   init(dramaId: Int? = nil) {
     self.dramaId = dramaId
@@ -39,11 +46,10 @@ final class DramaDetailViewController: BaseViewController {
   
   // MARK: Base Configuration
   override func configHierarchy() {
-    
+    view.addSubview(posterImage)
   }
   
   override func configLayout() {
-    
   }
   
   override func configView() {
@@ -95,4 +101,9 @@ extension DramaDetailViewController {
       }
     }
   }
+}
+
+@available(iOS 17.0, *)
+#Preview {
+  DramaDetailViewController(dramaId: 96102).wrapToNavVC()
 }

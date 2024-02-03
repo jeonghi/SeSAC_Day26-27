@@ -21,3 +21,8 @@ class PosterImageView: UIImageView {
     fatalError("init(coder:) has not been implemented")
   }
 }
+
+@available(iOS 17.0, *)
+#Preview {
+  PosterImageView(frame: .zero).wrapToVC()
+}
