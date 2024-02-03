@@ -15,7 +15,7 @@ class PagerUsingUIPageVC: BasePageViewController {
   }
   
   override func createPageViewController() -> [UIViewController] {
-    [PageVC1(), PageVC2(), PageVC3()]
+    [PageVC1(), PageVC2(), PageVC3(), PageVC4()]
   }
   
   override func configurePageViewController() {
@@ -25,21 +25,84 @@ class PagerUsingUIPageVC: BasePageViewController {
 }
 
 class PageVC1: BaseViewController {
+  var id = 1
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .green
+    print("\(id): \(#function)")
+  }
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    print("\(id): \(#function)")
+  }
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    print("\(id): \(#function)")
+  }
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    print("\(id): \(#function)")
   }
 }
 class PageVC2: BaseViewController {
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    view.backgroundColor = .blue
-  }
-}
-class PageVC3: BaseViewController {
+  var id = 2
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .yellow
+    print("\(id): \(#function)")
+  }
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    print("\(id): \(#function)")
+  }
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    print("\(id): \(#function)")
+  }
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    print("\(id): \(#function)")
+  }
+}
+class PageVC3: BaseViewController {
+  var id = 3
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    view.backgroundColor = .red
+    print("\(id): \(#function)")
+  }
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    print("\(id): \(#function)")
+  }
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    print("\(id): \(#function)")
+  }
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    print("\(id): \(#function)")
+  }
+}
+
+class PageVC4: BaseViewController {
+  var id = 4
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    view.backgroundColor = .blue
+    print("\(id): \(#function)")
+  }
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    print("\(id): \(#function)")
+  }
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    print("\(id): \(#function)")
+  }
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    print("\(id): \(#function)")
   }
 }
 
