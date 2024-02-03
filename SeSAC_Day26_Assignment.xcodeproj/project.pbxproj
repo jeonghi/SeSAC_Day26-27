@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		5B4C334E2B6CC2310099BC22 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C334D2B6CC2310099BC22 /* UIViewController+Extension.swift */; };
 		5B4C33502B6CCBEC0099BC22 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C334F2B6CCBEC0099BC22 /* UIView+Extension.swift */; };
-		5B4C33582B6CCDED0099BC22 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C33572B6CCDED0099BC22 /* UIViewController.swift */; };
 		5B4C335E2B6CCE880099BC22 /* PagerUsingUIPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C335D2B6CCE880099BC22 /* PagerUsingUIPageVC.swift */; };
 		5B4C33602B6CCE980099BC22 /* PagerUsingUIScrollVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C335F2B6CCE980099BC22 /* PagerUsingUIScrollVC.swift */; };
 		5B4C33622B6CCEA10099BC22 /* PagerUsingUICollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C33612B6CCEA10099BC22 /* PagerUsingUICollectionVC.swift */; };
 		5B4C33642B6CE0F50099BC22 /* BasePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C33632B6CE0F50099BC22 /* BasePageViewController.swift */; };
+		5B56666F2B6E1E2900EE904A /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B56666E2B6E1E2900EE904A /* UserDefaultManager.swift */; };
+		5B5666712B6E1E3500EE904A /* UserDefaultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5666702B6E1E3500EE904A /* UserDefaultWrapper.swift */; };
+		5B5666732B6E227100EE904A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5666722B6E227100EE904A /* OnboardingViewController.swift */; };
 		5B5956742B6BF1330085F573 /* AggregateCreditsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5956732B6BF1330085F573 /* AggregateCreditsEntity.swift */; };
 		5B6554342B6A92E6001815F5 /* UIView+addSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6554332B6A92E6001815F5 /* UIView+addSubviews.swift */; };
 		5B6554362B6A9638001815F5 /* DramaSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6554352B6A9638001815F5 /* DramaSearchViewController.swift */; };
@@ -70,11 +72,13 @@
 /* Begin PBXFileReference section */
 		5B4C334D2B6CC2310099BC22 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		5B4C334F2B6CCBEC0099BC22 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
-		5B4C33572B6CCDED0099BC22 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		5B4C335D2B6CCE880099BC22 /* PagerUsingUIPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerUsingUIPageVC.swift; sourceTree = "<group>"; };
 		5B4C335F2B6CCE980099BC22 /* PagerUsingUIScrollVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerUsingUIScrollVC.swift; sourceTree = "<group>"; };
 		5B4C33612B6CCEA10099BC22 /* PagerUsingUICollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerUsingUICollectionVC.swift; sourceTree = "<group>"; };
 		5B4C33632B6CE0F50099BC22 /* BasePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePageViewController.swift; sourceTree = "<group>"; };
+		5B56666E2B6E1E2900EE904A /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		5B5666702B6E1E3500EE904A /* UserDefaultWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultWrapper.swift; sourceTree = "<group>"; };
+		5B5666722B6E227100EE904A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		5B5956732B6BF1330085F573 /* AggregateCreditsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregateCreditsEntity.swift; sourceTree = "<group>"; };
 		5B6554332B6A92E6001815F5 /* UIView+addSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addSubviews.swift"; sourceTree = "<group>"; };
 		5B6554352B6A9638001815F5 /* DramaSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DramaSearchViewController.swift; sourceTree = "<group>"; };
@@ -178,7 +182,7 @@
 		5B4C33562B6CCDD60099BC22 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5B4C33572B6CCDED0099BC22 /* UIViewController.swift */,
+				5B5666722B6E227100EE904A /* OnboardingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -215,6 +219,15 @@
 				5B4C335D2B6CCE880099BC22 /* PagerUsingUIPageVC.swift */,
 			);
 			path = UIPageVC;
+			sourceTree = "<group>";
+		};
+		5B56666D2B6E1E1E00EE904A /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				5B56666E2B6E1E2900EE904A /* UserDefaultManager.swift */,
+				5B5666702B6E1E3500EE904A /* UserDefaultWrapper.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		5B6554372B6AA96D001815F5 /* DramaSearch */ = {
@@ -559,6 +572,7 @@
 		5BD9244E2B68EEF40027B869 /* SeSAC_Day26_Assignment */ = {
 			isa = PBXGroup;
 			children = (
+				5B56666D2B6E1E1E00EE904A /* Storage */,
 				5B7F97D22B6B2121005359C9 /* Resource */,
 				5BD9245A2B68EEF50027B869 /* LaunchScreen.storyboard */,
 				5B9D9FDA2B690C9300A4642F /* Network */,
@@ -672,6 +686,7 @@
 				5B742CB92B6A73FC0083E804 /* ButtonStyle.swift in Sources */,
 				5B742C722B6A4AAC0083E804 /* APIService.swift in Sources */,
 				5B742C5C2B69EBAB0083E804 /* TVService.swift in Sources */,
+				5B56666F2B6E1E2900EE904A /* UserDefaultManager.swift in Sources */,
 				5BD924692B68EF7B0027B869 /* TvAPI.swift in Sources */,
 				5B7F97CA2B6B1820005359C9 /* PosterImageView.swift in Sources */,
 				5B742C832B6A5BC60083E804 /* BaseViewController.swift in Sources */,
@@ -698,13 +713,13 @@
 				5B9D9FE92B69187800A4642F /* NetworkError.swift in Sources */,
 				5B9D9FDD2B690CB900A4642F /* TargetType.swift in Sources */,
 				5B7F97FA2B6B855A005359C9 /* DramaGroupCell.swift in Sources */,
-				5B4C33582B6CCDED0099BC22 /* UIViewController.swift in Sources */,
 				5B5956742B6BF1330085F573 /* AggregateCreditsEntity.swift in Sources */,
 				5B7F97F52B6B6B99005359C9 /* DramaDescriptionCell.swift in Sources */,
 				5B742CB72B6A73C00083E804 /* Style.swift in Sources */,
 				5B4C33622B6CCEA10099BC22 /* PagerUsingUICollectionVC.swift in Sources */,
 				5B742CA52B6A6A830083E804 /* DramaDetailViewController.swift in Sources */,
 				5B742CBD2B6A74670083E804 /* IconStyle.swift in Sources */,
+				5B5666732B6E227100EE904A /* OnboardingViewController.swift in Sources */,
 				5B742CC12B6A74C70083E804 /* FoundationStyle.swift in Sources */,
 				5B742C962B6A5EB00083E804 /* DramaHomeViewController.swift in Sources */,
 				5B742C992B6A62250083E804 /* BaseConfiguration.swift in Sources */,
@@ -712,6 +727,7 @@
 				5B4C335E2B6CCE880099BC22 /* PagerUsingUIPageVC.swift in Sources */,
 				5B9D9FE12B6913C900A4642F /* RequestParams.swift in Sources */,
 				5B742CAE2B6A72FA0083E804 /* ColorStyle.swift in Sources */,
+				5B5666712B6E1E3500EE904A /* UserDefaultWrapper.swift in Sources */,
 				5B742CC72B6A75BE0083E804 /* UIButton+Style.swift in Sources */,
 				5B742CC42B6A75560083E804 /* ComponentStyle.swift in Sources */,
 				5B742C9F2B6A64F90083E804 /* UIView+BaseConfiguration.swift in Sources */,
