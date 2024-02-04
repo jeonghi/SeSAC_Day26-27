@@ -12,15 +12,6 @@ import Then
 
 class DramaGroupCell: UITableViewCell {
   
-  let titleLabel = UILabel().then {
-    $0.font = Style.Foundation.Font.subheadline
-    $0.textColor = Style.Foundation.Color.tintColor
-    $0.tintColor = Style.Foundation.Color.tintColor
-    $0.backgroundColor = Style.Foundation.Color.clear
-    $0.textAlignment = .left
-    $0.text = "하하"
-  }
-  
   let collectionView = UICollectionView(
     frame: .zero,
     collectionViewLayout: configureCollectionViewLayout()
@@ -46,24 +37,19 @@ class DramaGroupCell: UITableViewCell {
   }
   
   func prepare(title: String?){
-    titleLabel.text = title
   }
   
   override func configLayout() {
-    titleLabel.snp.makeConstraints {
-      $0.top.equalTo(contentView.safeAreaLayoutGuide)
-      $0.horizontalEdges.equalToSuperview()
-    }
     
     collectionView.snp.makeConstraints {
-      $0.top.equalTo(titleLabel.snp.bottom)
+      $0.top.equalTo(contentView.safeAreaLayoutGuide)
       $0.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide)
       $0.bottom.equalTo(contentView.safeAreaLayoutGuide)
     }
   }
   
   override func configHierarchy() {
-    contentView.addSubviews([titleLabel, collectionView])
+    contentView.addSubviews([collectionView])
   }
   
   override func configView() {

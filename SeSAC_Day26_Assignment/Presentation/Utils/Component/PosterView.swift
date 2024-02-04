@@ -30,10 +30,26 @@ class PosterView: UIView {
     }
   }
   
+  var detailInfo: String? {
+    didSet {
+      descriptionLabel.text = self.detailInfo
+    }
+  }
+  
   lazy var backgroundImageView: PosterImageView = .init(self.imageUrl)
   lazy var foregroundImageView: PosterImageView = .init(self.imageUrl)
   
+  lazy var movieDetailView: UIView = .init().then {
+    $0.addSubviews([self.titleLabel, self.descriptionLabel])
+  }
+  
   var titleLabel: UILabel = .init().then {
+    $0.textColor = Style.Foundation.Color.tintColor
+    $0.numberOfLines = 1
+  }
+  
+  var descriptionLabel: UILabel = .init().then {
+    $0.font = Style.Foundation.Font.caption
     $0.textColor = Style.Foundation.Color.tintColor
     $0.numberOfLines = 0
   }
@@ -58,6 +74,7 @@ class PosterView: UIView {
       self.imageUrl = imageUrl
       self.movieTitle = title
       self.movieDate = year
+      self.detailInfo = description
     }
   }
   
@@ -77,7 +94,7 @@ class PosterView: UIView {
   
 
   override func configHierarchy() {
-    addSubviews([backgroundImageView, blurEffectView, foregroundImageView, titleLabel, label])
+    addSubviews([backgroundImageView, blurEffectView, foregroundImageView, movieDetailView, label])
   }
   
   override func configLayout() {
@@ -96,10 +113,22 @@ class PosterView: UIView {
       $0.top.greaterThanOrEqualTo(backgroundImageView.snp.bottom).offset(10)
     }
     
-    titleLabel.snp.makeConstraints {
-      $0.top.equalTo(foregroundImageView.snp.top)
+    movieDetailView.snp.makeConstraints {
+      $0.verticalEdges.equalTo(foregroundImageView)
       $0.leading.equalTo(foregroundImageView.snp.trailing).offset(20)
-      $0.trailing.equalTo(backgroundImageView).inset(10)
+      $0.trailing.equalTo(backgroundImageView)
+        .inset(10)
+    }
+    
+    titleLabel.snp.makeConstraints {
+      $0.top.equalTo(movieDetailView.snp.top)
+      $0.horizontalEdges.equalToSuperview()
+    }
+    
+    descriptionLabel.snp.makeConstraints {
+      $0.top.equalTo(titleLabel.snp.bottom).offset(10)
+      $0.horizontalEdges.equalToSuperview()
+      
     }
   }
 
@@ -130,7 +159,7 @@ import SwiftUI
     PosterView(
       title: "방이동 먹자 골목", 
       year: 2014,
-      description: "dfdaf",
+      description: "누군가는 태어나고 누군가는 삶을 끝내는 탄생과 죽음이 공존하는, 인생의 축소판이라 불리는 병원에서 평범한 듯 특별한 하루하루를 살아가는 사람들과 눈빛만 봐도 알 수 있는 20년지기 친구들의 케미스토리를 담은 드라마",
       imageUrl: "https://image.tmdb.org/t/p/w500/fRbJHsykSRLbRYNrCyaP2YATeDG.jpg".toUrl()
     )
   }

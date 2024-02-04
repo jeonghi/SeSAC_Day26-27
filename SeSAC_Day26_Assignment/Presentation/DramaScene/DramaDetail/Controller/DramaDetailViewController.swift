@@ -16,15 +16,17 @@ final class DramaDetailViewController: BaseViewController {
   
   var dramaId: Int?
   
-  var posterImage: PosterView = PosterView(
-    title: "방이동 먹자 골목", year: 2014, description: "dfdaf",
-    imageUrl: "https://image.tmdb.org/t/p/w500/fRbJHsykSRLbRYNrCyaP2YATeDG.jpg".toUrl()
-  )
+  var posterImage: PosterView = PosterView()
+  
+  var sections: [Section] = Section.allCases
+  
+  var movieList: [TVShowEntity.Response] = []
   
   lazy var tableView: UITableView = .init().then {
     $0.dataSource = self
     $0.delegate = self
     $0.backgroundColor = .clear
+    $0.register(DramaGroupCell.self, forCellReuseIdentifier: "DramaGroupCell")
   }
   
   override func loadView() {
@@ -59,7 +61,8 @@ final class DramaDetailViewController: BaseViewController {
   
   override func configLayout() {
     tableView.snp.makeConstraints {
-      $0.edges.equalToSuperview()
+      $0.top.equalTo(posterImage.snp.bottom)
+      $0.horizontalEdges.bottom.equalToSuperview()
     }
     posterImage.snp.makeConstraints {
       $0.top.equalTo(view.safeAreaLayoutGuide)
@@ -84,7 +87,11 @@ extension DramaDetailViewController {
       self.tvService.getTVDetails(id: $0) { res in
         switch res {
         case .success(let success):
-          print(success)
+          let posterPath = success?.posterPath ?? ""
+          self.posterImage.imageUrl = "\(AppConfiguration.shared.imageBaseURL)\(posterPath)".toUrl()
+          self.posterImage.movieTitle = success?.originalName
+          self.posterImage.detailInfo = success?.overview
+          self.posterImage.movieDate = success?.firstAirDate.extractYear()
           break
         case .failure(let error):
           break
@@ -96,10 +103,8 @@ extension DramaDetailViewController {
       self.tvService.getTVAggregateCredits(id: $0) { res in
         switch res {
         case .success(let success):
-          print(success?.cast)
           break
         case .failure(let error):
-          print(error)
           break
         }
         group.leave()
@@ -109,6 +114,8 @@ extension DramaDetailViewController {
       self.tvService.getTVRecommendations(id: $0) { res in
         switch res {
         case .success(let success):
+          self.movieList = success?.results ?? []
+          self.tableView.reloadData()
           break
         case .failure(let error):
           print(error)
@@ -133,11 +140,25 @@ extension DramaDetailViewController: UITableViewDelegate, UITableViewDataSource 
     return Section.allCases.count
   }
   
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    200
+  }
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 1
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let section = indexPath.section
+    if(sections[section] == .recommend){
+      guard let cell = tableView.dequeueReusableCell(withIdentifier: "DramaGroupCell") as? DramaGroupCell else {
+        return .init()
+      }
+      cell.collectionView.dataSource = self
+      cell.collectionView.delegate = self
+      cell.collectionView.register(DramaDescriptionCell.self, forCellWithReuseIdentifier: "DramaDescriptionCell")
+      return cell
+    }
     return .init()
   }
   
@@ -156,18 +177,37 @@ extension DramaDetailViewController: UITableViewDelegate, UITableViewDataSource 
     let headerLabel = UILabel(frame: CGRect(x: 16, y: 0, width: tableView.bounds.size.width, height: 30))
     headerLabel.font = Style.Foundation.Font.title2
     headerLabel.textColor = Style.Foundation.Color.secondary
-    headerLabel.text = "Section \(section)"
+    headerLabel.text = "\(sections[section].rawValue)"
     headerLabel.backgroundColor = UIColor.clear
     
     headerView.addSubview(headerLabel)
     return headerView
   }
   
-  enum Section: CaseIterable {
-    case movie // 영화 헤더
-    case country // 영화 제작한 나라
-    case casting // 캐스팅 정보
-    case recommend // 추천
+  enum Section: String, CaseIterable {
+    case country = "PRODUCTION COUNTRY" // 영화 제작한 나라
+    case casting = "출연진" // 캐스팅 정보
+    case recommend = "비슷한 드라마" // 추천
+  }
+}
+
+extension DramaDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+  
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    movieList.count
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    .init(width: 200, height: 200)
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let item = movieList[indexPath.item]
+    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DramaDescriptionCell", for: indexPath) as? DramaDescriptionCell else {
+      return .init()
+    }
+    cell.prepare(image: item.posterPath)
+    return cell
   }
 }
 

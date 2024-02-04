@@ -21,6 +21,7 @@
 		5B6554342B6A92E6001815F5 /* UIView+addSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6554332B6A92E6001815F5 /* UIView+addSubviews.swift */; };
 		5B6554362B6A9638001815F5 /* DramaSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6554352B6A9638001815F5 /* DramaSearchViewController.swift */; };
 		5B6BA91C2B6FA967001513EE /* UIViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA91B2B6FA967001513EE /* UIViewPreview.swift */; };
+		5B6BA91F2B6FF679001513EE /* CastingInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA91E2B6FF679001513EE /* CastingInfoCell.swift */; };
 		5B742C4F2B69CF580083E804 /* TMDbAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B742C4E2B69CF580083E804 /* TMDbAPIResponse.swift */; };
 		5B742C5A2B69EAF10083E804 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B742C592B69EAF10083E804 /* AppService.swift */; };
 		5B742C5C2B69EBAB0083E804 /* TVService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B742C5B2B69EBAB0083E804 /* TVService.swift */; };
@@ -86,6 +87,7 @@
 		5B6554332B6A92E6001815F5 /* UIView+addSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addSubviews.swift"; sourceTree = "<group>"; };
 		5B6554352B6A9638001815F5 /* DramaSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DramaSearchViewController.swift; sourceTree = "<group>"; };
 		5B6BA91B2B6FA967001513EE /* UIViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewPreview.swift; sourceTree = "<group>"; };
+		5B6BA91E2B6FF679001513EE /* CastingInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastingInfoCell.swift; sourceTree = "<group>"; };
 		5B742C4E2B69CF580083E804 /* TMDbAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDbAPIResponse.swift; sourceTree = "<group>"; };
 		5B742C592B69EAF10083E804 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		5B742C5B2B69EBAB0083E804 /* TVService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVService.swift; sourceTree = "<group>"; };
@@ -264,6 +266,14 @@
 				5B6554352B6A9638001815F5 /* DramaSearchViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		5B6BA91D2B6FF64D001513EE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5B6BA91E2B6FF679001513EE /* CastingInfoCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		5B742C4A2B69CECF0083E804 /* Entity */ = {
@@ -455,6 +465,7 @@
 		5B742CA32B6A6A730083E804 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5B6BA91D2B6FF64D001513EE /* Cell */,
 				5B7F97E02B6B2E3A005359C9 /* DramaDetailView.swift */,
 			);
 			path = View;
@@ -721,6 +732,7 @@
 				5B9D9FDD2B690CB900A4642F /* TargetType.swift in Sources */,
 				5B7F97FA2B6B855A005359C9 /* DramaGroupCell.swift in Sources */,
 				5B5956742B6BF1330085F573 /* AggregateCreditsEntity.swift in Sources */,
+				5B6BA91F2B6FF679001513EE /* CastingInfoCell.swift in Sources */,
 				5B7F97F52B6B6B99005359C9 /* DramaDescriptionCell.swift in Sources */,
 				5B742CB72B6A73C00083E804 /* Style.swift in Sources */,
 				5B4C33622B6CCEA10099BC22 /* PagerUsingUICollectionVC.swift in Sources */,
