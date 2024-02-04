@@ -16,9 +16,11 @@
 		5B56666F2B6E1E2900EE904A /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B56666E2B6E1E2900EE904A /* UserDefaultManager.swift */; };
 		5B5666712B6E1E3500EE904A /* UserDefaultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5666702B6E1E3500EE904A /* UserDefaultWrapper.swift */; };
 		5B5666732B6E227100EE904A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5666722B6E227100EE904A /* OnboardingViewController.swift */; };
+		5B5666752B6E2E7C00EE904A /* PosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5666742B6E2E7C00EE904A /* PosterView.swift */; };
 		5B5956742B6BF1330085F573 /* AggregateCreditsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5956732B6BF1330085F573 /* AggregateCreditsEntity.swift */; };
 		5B6554342B6A92E6001815F5 /* UIView+addSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6554332B6A92E6001815F5 /* UIView+addSubviews.swift */; };
 		5B6554362B6A9638001815F5 /* DramaSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6554352B6A9638001815F5 /* DramaSearchViewController.swift */; };
+		5B6BA91C2B6FA967001513EE /* UIViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA91B2B6FA967001513EE /* UIViewPreview.swift */; };
 		5B742C4F2B69CF580083E804 /* TMDbAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B742C4E2B69CF580083E804 /* TMDbAPIResponse.swift */; };
 		5B742C5A2B69EAF10083E804 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B742C592B69EAF10083E804 /* AppService.swift */; };
 		5B742C5C2B69EBAB0083E804 /* TVService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B742C5B2B69EBAB0083E804 /* TVService.swift */; };
@@ -79,9 +81,11 @@
 		5B56666E2B6E1E2900EE904A /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		5B5666702B6E1E3500EE904A /* UserDefaultWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultWrapper.swift; sourceTree = "<group>"; };
 		5B5666722B6E227100EE904A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		5B5666742B6E2E7C00EE904A /* PosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterView.swift; sourceTree = "<group>"; };
 		5B5956732B6BF1330085F573 /* AggregateCreditsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregateCreditsEntity.swift; sourceTree = "<group>"; };
 		5B6554332B6A92E6001815F5 /* UIView+addSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addSubviews.swift"; sourceTree = "<group>"; };
 		5B6554352B6A9638001815F5 /* DramaSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DramaSearchViewController.swift; sourceTree = "<group>"; };
+		5B6BA91B2B6FA967001513EE /* UIViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewPreview.swift; sourceTree = "<group>"; };
 		5B742C4E2B69CF580083E804 /* TMDbAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDbAPIResponse.swift; sourceTree = "<group>"; };
 		5B742C592B69EAF10083E804 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		5B742C5B2B69EBAB0083E804 /* TVService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVService.swift; sourceTree = "<group>"; };
@@ -323,6 +327,7 @@
 		5B742C7E2B6A5A830083E804 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				5B6BA91B2B6FA967001513EE /* UIViewPreview.swift */,
 				5B742C9A2B6A649D0083E804 /* Component */,
 				5B742C842B6A5BCA0083E804 /* Base */,
 			);
@@ -408,6 +413,7 @@
 			children = (
 				5B7F97C92B6B1820005359C9 /* PosterImageView.swift */,
 				5B7F97D02B6B1ADA005359C9 /* PosterLabel.swift */,
+				5B5666742B6E2E7C00EE904A /* PosterView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -692,6 +698,7 @@
 				5B742C832B6A5BC60083E804 /* BaseViewController.swift in Sources */,
 				5B7F97E52B6B2E83005359C9 /* BaseView.swift in Sources */,
 				5B7F97F72B6B7379005359C9 /* String+Extension.swift in Sources */,
+				5B6BA91C2B6FA967001513EE /* UIViewPreview.swift in Sources */,
 				5B4C33642B6CE0F50099BC22 /* BasePageViewController.swift in Sources */,
 				5BD924502B68EEF40027B869 /* AppDelegate.swift in Sources */,
 				5B6554342B6A92E6001815F5 /* UIView+addSubviews.swift in Sources */,
@@ -721,6 +728,7 @@
 				5B742CBD2B6A74670083E804 /* IconStyle.swift in Sources */,
 				5B5666732B6E227100EE904A /* OnboardingViewController.swift in Sources */,
 				5B742CC12B6A74C70083E804 /* FoundationStyle.swift in Sources */,
+				5B5666752B6E2E7C00EE904A /* PosterView.swift in Sources */,
 				5B742C962B6A5EB00083E804 /* DramaHomeViewController.swift in Sources */,
 				5B742C992B6A62250083E804 /* BaseConfiguration.swift in Sources */,
 				5B4C33602B6CCE980099BC22 /* PagerUsingUIScrollVC.swift in Sources */,

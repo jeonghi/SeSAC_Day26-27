@@ -15,12 +15,20 @@ final class DramaDetailViewController: BaseViewController {
   var tvService: TVService { AppService.apiService.tvService }
   
   var dramaId: Int?
-
-  var posterImage = PosterImageView(frame: .zero)
+  
+  var posterImage: PosterView = PosterView(
+    title: "방이동 먹자 골목", year: 2014, description: "dfdaf",
+    imageUrl: "https://image.tmdb.org/t/p/w500/fRbJHsykSRLbRYNrCyaP2YATeDG.jpg".toUrl()
+  )
+  
+  lazy var tableView: UITableView = .init().then {
+    $0.dataSource = self
+    $0.delegate = self
+    $0.backgroundColor = .clear
+  }
   
   override func loadView() {
     super.loadView()
-    self.view = UIView().then{$0.backgroundColor = .black}
   }
   
   init(dramaId: Int? = nil) {
@@ -46,10 +54,18 @@ final class DramaDetailViewController: BaseViewController {
   
   // MARK: Base Configuration
   override func configHierarchy() {
-    view.addSubview(posterImage)
+    view.addSubviews([tableView, posterImage])
   }
   
   override func configLayout() {
+    tableView.snp.makeConstraints {
+      $0.edges.equalToSuperview()
+    }
+    posterImage.snp.makeConstraints {
+      $0.top.equalTo(view.safeAreaLayoutGuide)
+      $0.horizontalEdges.equalToSuperview()
+      $0.height.equalToSuperview().dividedBy(3)
+    }
   }
   
   override func configView() {
@@ -57,6 +73,7 @@ final class DramaDetailViewController: BaseViewController {
   }
 }
 
+// MARK: 네트워크
 extension DramaDetailViewController {
   var callRequest: (Int) -> Void {
     {
@@ -67,6 +84,7 @@ extension DramaDetailViewController {
       self.tvService.getTVDetails(id: $0) { res in
         switch res {
         case .success(let success):
+          print(success)
           break
         case .failure(let error):
           break
@@ -78,8 +96,10 @@ extension DramaDetailViewController {
       self.tvService.getTVAggregateCredits(id: $0) { res in
         switch res {
         case .success(let success):
+          print(success?.cast)
           break
         case .failure(let error):
+          print(error)
           break
         }
         group.leave()
@@ -91,6 +111,7 @@ extension DramaDetailViewController {
         case .success(let success):
           break
         case .failure(let error):
+          print(error)
           break
         }
         group.leave()
@@ -100,6 +121,53 @@ extension DramaDetailViewController {
         self.isLoading = false
       }
     }
+  }
+}
+
+// MARK: 테이블 뷰
+extension DramaDetailViewController: UITableViewDelegate, UITableViewDataSource {
+  
+  // MARK: - UITableViewDataSource
+  /// 섹션의 갯수
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return Section.allCases.count
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 1
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    return .init()
+  }
+  
+  // MARK: - UITableViewDelegate
+  
+  /// 섹션 헤더 높이 설정
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 30
+  }
+  
+  /// 섹션 헤더 뷰 설정
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    let headerView = UIView()
+    headerView.backgroundColor = UIColor.clear
+    
+    let headerLabel = UILabel(frame: CGRect(x: 16, y: 0, width: tableView.bounds.size.width, height: 30))
+    headerLabel.font = Style.Foundation.Font.title2
+    headerLabel.textColor = Style.Foundation.Color.secondary
+    headerLabel.text = "Section \(section)"
+    headerLabel.backgroundColor = UIColor.clear
+    
+    headerView.addSubview(headerLabel)
+    return headerView
+  }
+  
+  enum Section: CaseIterable {
+    case movie // 영화 헤더
+    case country // 영화 제작한 나라
+    case casting // 캐스팅 정보
+    case recommend // 추천
   }
 }
 

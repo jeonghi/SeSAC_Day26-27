@@ -39,16 +39,16 @@ enum AggregateCreditsEntity {
   
   struct Response: Decodable {
     let id: Int
-    let cast: [CastMember]
-    let crew: [CrewMember]
+    let cast: [CastMember]?
+    let crew: [CrewMember]?
   }
   
   // MARK: - Cast Member
   struct CastMember: Decodable {
     let adult: Bool
-    let gender: Gender
+    let gender: Int
     let id: Int
-    let knownForDepartment: Department
+    let knownForDepartment: String
     let name: String
     let originalName: String
     let popularity: Double
@@ -71,15 +71,15 @@ enum AggregateCreditsEntity {
   // MARK: - Crew Member
   struct CrewMember: Decodable {
     let adult: Bool
-    let gender: Gender
+    let gender: Int
     let id: Int
-    let knownForDepartment: Department
+    let knownForDepartment: String
     let name: String
     let originalName: String
     let popularity: Double
     let profilePath: String?
-    let jobs: [Job]
-    let department: Department
+    let jobs: [Job]?
+    let department: String
     let totalEpisodeCount: Int
     
     enum CodingKeys: String, CodingKey {
@@ -98,7 +98,7 @@ enum AggregateCreditsEntity {
     let creditId: String
     let job: String
     let episodeCount: Int
-    let department: Department
+    let department: String?
     
     enum CodingKeys: String, CodingKey {
       case creditId = "credit_id"

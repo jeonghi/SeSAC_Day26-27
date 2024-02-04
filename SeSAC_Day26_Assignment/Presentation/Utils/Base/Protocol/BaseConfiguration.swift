@@ -15,8 +15,8 @@ import Foundation
 
 extension BaseConfiguration where Self: NSObject {
   func configBase() {
-    configHierarchy?()
     configView?()
+    configHierarchy?()
     configLayout?()
   }
 }

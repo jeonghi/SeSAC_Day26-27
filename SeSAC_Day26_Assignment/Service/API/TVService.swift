@@ -23,7 +23,7 @@ protocol TVServiceType {
   
   func searchTV(query: String, language: String, completion: @escaping (TVShowSingleResponseResult) -> Void)
   
-  func getTVDetails(id: Int, language: String, completion: @escaping (TVShowBatchResponseResult) -> Void)
+  func getTVDetails(id: Int, language: String, completion: @escaping (Result<TVShowEntity.Response?, NetworkError>) -> Void)
   
   func getTVRecommendations(id: Int, language: String, completion: @escaping (TVShowBatchResponseResult) -> Void)
   
@@ -53,8 +53,8 @@ final class TVService: TVServiceType {
     return network.request(.searchTV(query: query, language: language), responseType: TVShowSingleResponse.self, completion: completion)
   }
   
-  func getTVDetails(id: Int, language: String = Locale.currentLanguageAndCountryCode, completion: @escaping (TVShowBatchResponseResult) -> Void) {
-    return network.request(.getTVDetails(id: id, language: language), responseType: TVShowBatchResponse.self, completion: completion)
+  func getTVDetails(id: Int, language: String = Locale.currentLanguageAndCountryCode, completion: @escaping (Result<TVShowEntity.Response?, NetworkError>) -> Void) {
+    return network.request(.getTVDetails(id: id, language: language), responseType: TVShowEntity.Response.self, completion: completion)
   }
   
   func getTVRecommendations(id: Int, language: String = Locale.currentLanguageAndCountryCode, completion: @escaping (TVShowBatchResponseResult) -> Void) {

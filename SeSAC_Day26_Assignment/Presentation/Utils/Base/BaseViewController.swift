@@ -29,7 +29,7 @@ class BaseViewController: UIViewController {
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = .black
+    view.backgroundColor = Style.Foundation.Color.backgroundColor
     configBase()
   }
   
