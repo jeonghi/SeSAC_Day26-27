@@ -17,6 +17,18 @@ class CastingInfoCell: UICollectionViewCell {
     $0.textColor = Style.Foundation.Color.secondary
   }
   
+  let roleNameLabel: UILabel = .init().then {
+    $0.font = Style.Foundation.Font.caption
+    $0.textColor = Style.Foundation.Color.tintColor
+  }
+  
+  lazy var stackView: UIStackView = .init(arrangedSubviews: [self.nameLabel, self.roleNameLabel]).then {
+    $0.axis = .vertical
+    $0.alignment = .leading
+    $0.distribution = .fill
+    $0.spacing = 10
+  }
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     configBase()
@@ -28,23 +40,26 @@ class CastingInfoCell: UICollectionViewCell {
   
   override func prepareForReuse() {
     super.prepareForReuse()
-    prepare(name: nil)
+    prepare(name: nil, roleName: nil)
   }
   
-  func prepare(name: String?){
+  func prepare(name: String?, roleName: String?){
     nameLabel.text = name
+    roleNameLabel.text = roleName
   }
   
   override func configHierarchy() {
-    contentView.addSubviews([nameLabel])
+    contentView.addSubviews([stackView])
   }
   
   override func configView() {
+    
   }
   
   override func configLayout() {
-    nameLabel.snp.makeConstraints {
-      $0.size.equalToSuperview()
+    stackView.snp.makeConstraints {
+      $0.center.equalToSuperview()
+      $0.horizontalEdges.equalToSuperview().inset(5)
     }
   }
 }

@@ -16,22 +16,22 @@ final class DramaDetailViewController: BaseViewController {
   
   var dramaId: Int?
   
-  var posterImage: PosterView = PosterView()
+  var posterImage: PosterView = .init()
+  
+  lazy var dramaDetailView: DramaDetailView = .init().then {
+    $0.tableView.delegate = self
+    $0.tableView.dataSource = self
+  }
   
   var sections: [Section] = Section.allCases
   
+  var detailInfo: TVShowEntity.Response?
   var movieList: [TVShowEntity.Response] = []
   var castList: [AggregateCreditsEntity.CastMember] = []
   
-  lazy var tableView: UITableView = .init(frame: .zero, style: .grouped).then {
-    $0.dataSource = self
-    $0.delegate = self
-    $0.backgroundColor = .clear
-    $0.register(DramaGroupCell.self, forCellReuseIdentifier: "DramaGroupCell")
-  }
-  
   override func loadView() {
-    super.loadView()
+//    super.loadView()
+    self.view = dramaDetailView
   }
   
   init(dramaId: Int? = nil) {
@@ -57,15 +57,11 @@ final class DramaDetailViewController: BaseViewController {
   
   // MARK: Base Configuration
   override func configHierarchy() {
-    view.addSubviews([tableView])
+    
   }
   
   override func configLayout() {
-    tableView.snp.makeConstraints {
-      $0.top.equalTo(view.safeAreaLayoutGuide)
-      $0.bottom.equalTo(view.safeAreaLayoutGuide)
-      $0.horizontalEdges.equalToSuperview()
-    }
+
   }
   
   override func configView() {
@@ -89,6 +85,7 @@ extension DramaDetailViewController {
           self.posterImage.movieTitle = success?.originalName
           self.posterImage.detailInfo = success?.overview
           self.posterImage.movieDate = success?.firstAirDate.extractYear()
+          self.detailInfo = success
           break
         case .failure(let error):
           break
@@ -123,7 +120,7 @@ extension DramaDetailViewController {
       
       group.notify(queue: .main){
         self.isLoading = false
-        self.tableView.reloadData()
+        self.dramaDetailView.tableView.reloadData()
       }
     }
   }
@@ -143,7 +140,7 @@ extension DramaDetailViewController: UITableViewDelegate, UITableViewDataSource 
     case .country:
       return 60
     case .casting:
-      return 50
+      return 80
     default:
       return 200
     }
@@ -161,6 +158,14 @@ extension DramaDetailViewController: UITableViewDelegate, UITableViewDataSource 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let section = indexPath.section
     switch sections[section] {
+    case .country:
+      guard let cell = tableView.dequeueReusableCell(withIdentifier: "CountryInfoCell") as? CountryInfoCell else {
+        return .init()
+      }
+      cell.prepare(countryName: detailInfo?.originCountry.first)
+      cell.selectionStyle = .none
+      return cell
+      
     case .casting:
       guard let cell = tableView.dequeueReusableCell(withIdentifier: "DramaGroupCell") as? DramaGroupCell else {
         return .init()
@@ -191,6 +196,8 @@ extension DramaDetailViewController: UITableViewDelegate, UITableViewDataSource 
   /// 섹션 헤더 높이 설정
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     switch sections[section] {
+    case .country:
+      return 40
     case .profile:
       return 400
     default:
@@ -257,7 +264,7 @@ extension DramaDetailViewController: UICollectionViewDelegate, UICollectionViewD
       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CastingInfoCell", for: indexPath) as? CastingInfoCell else {
         return .init()
       }
-      cell.prepare(name: item.originalName)
+      cell.prepare(name: item.originalName, roleName: item.roles.first?.character)
       return cell
     case .recommend:
       let item = movieList[indexPath.item]

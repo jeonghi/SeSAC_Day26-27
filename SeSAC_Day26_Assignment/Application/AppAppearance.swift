@@ -23,12 +23,15 @@ final class AppAppearance {
     /// 백버튼 아이콘 색상을 흰색으로 설정
     navigationBarAppearance.tintColor = Style.Foundation.Color.tintColor
     
+    /// 네비게이션 바 백그라운드 변경
+    navigationBarAppearance.barTintColor = Style.Foundation.Color.backgroundColor
+    
     /// 타이틀 텍스트 속성 굵게 설정
     let titleTextAttributes: [NSAttributedString.Key: Any] = [
       .font: Style.Foundation.Font.subheadline,
       .foregroundColor: Style.Foundation.Color.tintColor
     ]
-    
+    navigationBarAppearance.isTranslucent = true
     navigationBarAppearance.titleTextAttributes = titleTextAttributes
   }
   
@@ -40,6 +43,7 @@ final class AppAppearance {
     /// 틴트 색상 설정
     tabBarAppearance.tintColor = Style.Foundation.Color.pointColor
     tabBarAppearance.unselectedItemTintColor = Style.Foundation.Color.unpointColor
+    tabBarAppearance.barTintColor = Style.Foundation.Color.backgroundColor
     
     /// 투명도 설정
     tabBarAppearance.isTranslucent = true

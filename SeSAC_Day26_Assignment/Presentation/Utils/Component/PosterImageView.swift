@@ -11,7 +11,9 @@ class PosterImageView: UIImageView {
   
   var imageUrl: URL? {
     didSet {
-      loadImage()
+      DispatchQueue.main.async {
+        self.loadImage()
+      }
     }
   }
   
@@ -42,12 +44,10 @@ class PosterImageView: UIImageView {
   
   private func loadImage() {
     guard let url = imageUrl else { return }
-    URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-      guard let data = data, let image = UIImage(data: data) else { return }
-      DispatchQueue.main.async {
-        self?.image = image
-      }
-    }.resume()
+    self.kf.setImage(with: url)
+  }
+  
+  func configurePosterImageView(_ image: UIImage) {
   }
 }
 
@@ -60,4 +60,5 @@ import SwiftUI
   }
   .previewLayout(.sizeThatFits)
 }
+
 #endif
