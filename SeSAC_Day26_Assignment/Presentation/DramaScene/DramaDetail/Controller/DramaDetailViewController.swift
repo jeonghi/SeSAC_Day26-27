@@ -21,8 +21,9 @@ final class DramaDetailViewController: BaseViewController {
   var sections: [Section] = Section.allCases
   
   var movieList: [TVShowEntity.Response] = []
+  var castList: [AggregateCreditsEntity.CastMember] = []
   
-  lazy var tableView: UITableView = .init().then {
+  lazy var tableView: UITableView = .init(frame: .zero, style: .grouped).then {
     $0.dataSource = self
     $0.delegate = self
     $0.backgroundColor = .clear
@@ -56,18 +57,14 @@ final class DramaDetailViewController: BaseViewController {
   
   // MARK: Base Configuration
   override func configHierarchy() {
-    view.addSubviews([tableView, posterImage])
+    view.addSubviews([tableView])
   }
   
   override func configLayout() {
     tableView.snp.makeConstraints {
-      $0.top.equalTo(posterImage.snp.bottom)
-      $0.horizontalEdges.bottom.equalToSuperview()
-    }
-    posterImage.snp.makeConstraints {
       $0.top.equalTo(view.safeAreaLayoutGuide)
+      $0.bottom.equalTo(view.safeAreaLayoutGuide)
       $0.horizontalEdges.equalToSuperview()
-      $0.height.equalToSuperview().dividedBy(3)
     }
   }
   
@@ -103,6 +100,7 @@ extension DramaDetailViewController {
       self.tvService.getTVAggregateCredits(id: $0) { res in
         switch res {
         case .success(let success):
+          self.castList = success?.cast ?? []
           break
         case .failure(let error):
           break
@@ -115,7 +113,6 @@ extension DramaDetailViewController {
         switch res {
         case .success(let success):
           self.movieList = success?.results ?? []
-          self.tableView.reloadData()
           break
         case .failure(let error):
           print(error)
@@ -126,6 +123,7 @@ extension DramaDetailViewController {
       
       group.notify(queue: .main){
         self.isLoading = false
+        self.tableView.reloadData()
       }
     }
   }
@@ -141,50 +139,87 @@ extension DramaDetailViewController: UITableViewDelegate, UITableViewDataSource 
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    200
+    switch sections[indexPath.section] {
+    case .country:
+      return 60
+    case .casting:
+      return 50
+    default:
+      return 200
+    }
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 1
+    switch sections[section] {
+    case .profile:
+      return 0
+    default:
+      return 1
+    }
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let section = indexPath.section
-    if(sections[section] == .recommend){
+    switch sections[section] {
+    case .casting:
       guard let cell = tableView.dequeueReusableCell(withIdentifier: "DramaGroupCell") as? DramaGroupCell else {
         return .init()
       }
+      cell.collectionView.tag = section
+      cell.collectionView.dataSource = self
+      cell.collectionView.delegate = self
+      cell.collectionView.register(CastingInfoCell.self, forCellWithReuseIdentifier: "CastingInfoCell")
+      cell.collectionView.reloadData()
+      return cell
+    case .recommend:
+      guard let cell = tableView.dequeueReusableCell(withIdentifier: "DramaGroupCell") as? DramaGroupCell else {
+        return .init()
+      }
+      cell.collectionView.tag = section
       cell.collectionView.dataSource = self
       cell.collectionView.delegate = self
       cell.collectionView.register(DramaDescriptionCell.self, forCellWithReuseIdentifier: "DramaDescriptionCell")
+      cell.collectionView.reloadData()
       return cell
+    default:
+      return .init()
     }
-    return .init()
   }
   
   // MARK: - UITableViewDelegate
   
   /// 섹션 헤더 높이 설정
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return 30
+    switch sections[section] {
+    case .profile:
+      return 400
+    default:
+      return 30
+    }
   }
   
   /// 섹션 헤더 뷰 설정
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    let headerView = UIView()
-    headerView.backgroundColor = UIColor.clear
-    
-    let headerLabel = UILabel(frame: CGRect(x: 16, y: 0, width: tableView.bounds.size.width, height: 30))
-    headerLabel.font = Style.Foundation.Font.title2
-    headerLabel.textColor = Style.Foundation.Color.secondary
-    headerLabel.text = "\(sections[section].rawValue)"
-    headerLabel.backgroundColor = UIColor.clear
-    
-    headerView.addSubview(headerLabel)
-    return headerView
+    switch sections[section] {
+    case .profile:
+      return posterImage
+    default:
+      let headerView = UIView()
+      headerView.backgroundColor = UIColor.clear
+      
+      let headerLabel = UILabel(frame: CGRect(x: 16, y: 0, width: tableView.bounds.size.width, height: 40))
+      headerLabel.font = Style.Foundation.Font.title2
+      headerLabel.textColor = Style.Foundation.Color.secondary
+      headerLabel.text = "\(sections[section].rawValue)"
+      headerLabel.backgroundColor = UIColor.clear
+      
+      headerView.addSubview(headerLabel)
+      return headerView
+    }
   }
   
   enum Section: String, CaseIterable {
+    case profile // 프로필
     case country = "PRODUCTION COUNTRY" // 영화 제작한 나라
     case casting = "출연진" // 캐스팅 정보
     case recommend = "비슷한 드라마" // 추천
@@ -194,20 +229,46 @@ extension DramaDetailViewController: UITableViewDelegate, UITableViewDataSource 
 extension DramaDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    movieList.count
+    switch sections[collectionView.tag] {
+    case .casting:
+      return castList.count
+    case .recommend:
+      return movieList.count
+    default:
+      return 0
+    }
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    .init(width: 200, height: 200)
+    switch sections[collectionView.tag] {
+    case .casting:
+      return .init(width: 50, height: 100)
+    case .recommend:
+      return .init(width: 200, height: 200)
+    default:
+      return .zero
+    }
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let item = movieList[indexPath.item]
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DramaDescriptionCell", for: indexPath) as? DramaDescriptionCell else {
+    switch sections[collectionView.tag] {
+    case .casting:
+      let item = castList[indexPath.item]
+      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CastingInfoCell", for: indexPath) as? CastingInfoCell else {
+        return .init()
+      }
+      cell.prepare(name: item.originalName)
+      return cell
+    case .recommend:
+      let item = movieList[indexPath.item]
+      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DramaDescriptionCell", for: indexPath) as? DramaDescriptionCell else {
+        return .init()
+      }
+      cell.prepare(image: item.posterPath)
+      return cell
+    default:
       return .init()
     }
-    cell.prepare(image: item.posterPath)
-    return cell
   }
 }
 
