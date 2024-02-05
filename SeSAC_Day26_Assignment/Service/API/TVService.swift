@@ -62,6 +62,7 @@ final class TVService: TVServiceType {
   }
   
   func getTVAggregateCredits(id: Int, language: String = Locale.currentLanguageAndCountryCode, completion: @escaping (Result<AggregateCreditsEntity.Response?, NetworkError>) -> Void) {
-    return network.request(.getTVAggregateCredits(id: id, language: language), responseType: AggregateCreditsEntity.Response.self, completion: completion)
+//    return network.request(.getTVAggregateCredits(id: id, language: language), responseType: AggregateCreditsEntity.Response.self, completion: completion)
+    return network.requestUrlSession(.getTVAggregateCredits(id: id, language: language), responseType: AggregateCreditsEntity.Response.self, completion: completion)
   }
 }

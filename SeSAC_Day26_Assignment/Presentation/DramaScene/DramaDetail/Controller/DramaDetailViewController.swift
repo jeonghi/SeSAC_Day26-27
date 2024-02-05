@@ -100,7 +100,7 @@ extension DramaDetailViewController {
       self.tvService.getTVAggregateCredits(id: $0) { res in
         switch res {
         case .success(let success):
-          self.castList = success?.cast ?? []
+          self.castList = success?.cast?.filter{$0.knownForDepartment == "Acting"} ?? []
           break
         case .failure(let error):
           break

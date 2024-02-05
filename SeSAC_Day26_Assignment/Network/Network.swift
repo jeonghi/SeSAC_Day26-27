@@ -41,4 +41,38 @@ extension Network {
         }
       }
   }
+  
+  func requestUrlSession<R>(_ target: T, responseType: R.Type, completion: @escaping ((Result<R?, NetworkError>) -> Void)) where T: TargetType, R: Decodable {
+    let decoder = JSONDecoder()
+    
+    decoder.dateDecodingStrategy = .iso8601
+    
+    guard let urlRequest = try? target.asURLRequest() else {
+      return
+    }
+    
+    let task = URLSession.shared.dataTask(with: urlRequest) { data, res, error in
+      DispatchQueue.main.async {
+        
+        if let error {
+          completion(.failure(.unknown("알 수 없는 에러")))
+          return
+        }
+        
+        guard let data else {
+          completion(.failure(.unknown("알 수 없는 에러")))
+          return
+        }
+        
+        do {
+          let result = try JSONDecoder().decode(R.self, from: data)
+          completion(.success(result))
+        } catch {
+          completion(.failure(.unknown("알 수 없는 에러")))
+        }
+      }
+    }
+    
+    task.resume()
+  }
 }
