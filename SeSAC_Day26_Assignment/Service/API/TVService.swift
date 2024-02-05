@@ -38,15 +38,15 @@ final class TVService: TVServiceType {
   private init() {}
   
   func getTrendingTVs(timeWindow: TVShowEntity.TimeWindow, language: String = Locale.currentLanguageAndCountryCode, completion: @escaping (TVShowBatchResponseResult) -> Void) {
-    return network.request(.getTrandTVs(timeWindow: timeWindow.rawValue, language: language), responseType: TVShowBatchResponse.self, completion: completion)
+    return network.requestUrlSession(.getTrandTVs(timeWindow: timeWindow.rawValue, language: language), responseType: TVShowBatchResponse.self, completion: completion)
   }
   
   func getPopularTVs(language: String = Locale.currentLanguageAndCountryCode, completion: @escaping (TVShowBatchResponseResult) -> Void) {
-    return network.request(.getPopularTVs(language: language), responseType: TVShowBatchResponse.self, completion: completion)
+    return network.requestUrlSession(.getPopularTVs(language: language), responseType: TVShowBatchResponse.self, completion: completion)
   }
   
   func getTopRatedTVs(language: String = Locale.currentLanguageAndCountryCode, completion: @escaping (TVShowBatchResponseResult) -> Void) {
-    return network.request(.getTopRatedTVs(language: language), responseType: TVShowBatchResponse.self, completion: completion)
+    return network.requestUrlSession(.getTopRatedTVs(language: language), responseType: TVShowBatchResponse.self, completion: completion)
   }
   
   func searchTV(query: String, language: String = Locale.currentLanguageAndCountryCode, completion: @escaping (TVShowSingleResponseResult) -> Void) {
