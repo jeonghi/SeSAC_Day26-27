@@ -28,6 +28,7 @@ class OnboardingViewController: BaseViewController {
   }
 }
 
+
 // MARK: Navigator
 extension OnboardingViewController {
   func replaceRootToHome(){

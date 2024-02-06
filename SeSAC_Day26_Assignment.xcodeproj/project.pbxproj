@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B3A09202B72F8A400A3B935 /* DramaHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3A091F2B72F8A400A3B935 /* DramaHomeView.swift */; };
 		5B4C334E2B6CC2310099BC22 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C334D2B6CC2310099BC22 /* UIViewController+Extension.swift */; };
 		5B4C33502B6CCBEC0099BC22 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C334F2B6CCBEC0099BC22 /* UIView+Extension.swift */; };
 		5B4C335E2B6CCE880099BC22 /* PagerUsingUIPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C335D2B6CCE880099BC22 /* PagerUsingUIPageVC.swift */; };
@@ -74,6 +75,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B3A091F2B72F8A400A3B935 /* DramaHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DramaHomeView.swift; sourceTree = "<group>"; };
 		5B4C334D2B6CC2310099BC22 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		5B4C334F2B6CCBEC0099BC22 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		5B4C335D2B6CCE880099BC22 /* PagerUsingUIPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerUsingUIPageVC.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				5B7F97F32B6B6B67005359C9 /* Cell */,
+				5B3A091F2B72F8A400A3B935 /* DramaHomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -749,6 +752,7 @@
 				5B4C33602B6CCE980099BC22 /* PagerUsingUIScrollVC.swift in Sources */,
 				5B6979F22B70E52300D59E3F /* CountryInfoCell.swift in Sources */,
 				5B4C335E2B6CCE880099BC22 /* PagerUsingUIPageVC.swift in Sources */,
+				5B3A09202B72F8A400A3B935 /* DramaHomeView.swift in Sources */,
 				5B9D9FE12B6913C900A4642F /* RequestParams.swift in Sources */,
 				5B742CAE2B6A72FA0083E804 /* ColorStyle.swift in Sources */,
 				5B5666712B6E1E3500EE904A /* UserDefaultWrapper.swift in Sources */,

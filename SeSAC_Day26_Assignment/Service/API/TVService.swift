@@ -38,7 +38,7 @@ final class TVService: TVServiceType {
   private init() {}
   
   func getTrendingTVs(timeWindow: TVShowEntity.TimeWindow, language: String = Locale.currentLanguageAndCountryCode, completion: @escaping (TVShowBatchResponseResult) -> Void) {
-    return network.requestUrlSession(.getTrandTVs(timeWindow: timeWindow.rawValue, language: language), responseType: TVShowBatchResponse.self, completion: completion)
+    return network.request(.getTrandTVs(timeWindow: timeWindow.rawValue, language: language), responseType: TVShowBatchResponse.self, completion: completion)
   }
   
   func getPopularTVs(language: String = Locale.currentLanguageAndCountryCode, completion: @escaping (TVShowBatchResponseResult) -> Void) {

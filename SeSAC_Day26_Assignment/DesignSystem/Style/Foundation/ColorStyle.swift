@@ -9,7 +9,7 @@ import UIKit
 
 enum ColorStyle {
   static let secondary = UIColor(hex: "#6A7C8F", alpha: 1.0)
-  static let pointColor = UIColor(red: 73.0/255.0, green: 220.0/255.0, blue: 146.0/255.0, alpha: 1.0)
+  static let pointColor = UIColor.systemYellow
   static let tintColor = UIColor.white
   static let backgroundColor = UIColor(hex: "#060D17", alpha: 1.0)
   static let primary = UIColor(hex: "#060D17", alpha: 1.0)
