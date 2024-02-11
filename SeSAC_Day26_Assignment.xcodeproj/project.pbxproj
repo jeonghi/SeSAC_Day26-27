@@ -19,6 +19,14 @@
 		5B5666732B6E227100EE904A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5666722B6E227100EE904A /* OnboardingViewController.swift */; };
 		5B5666752B6E2E7C00EE904A /* PosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5666742B6E2E7C00EE904A /* PosterView.swift */; };
 		5B5956742B6BF1330085F573 /* AggregateCreditsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5956732B6BF1330085F573 /* AggregateCreditsEntity.swift */; };
+		5B5A4E742B7882870023707E /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A4E732B7882870023707E /* UserProfileView.swift */; };
+		5B5A4E762B7882950023707E /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A4E752B7882950023707E /* UserProfileViewController.swift */; };
+		5B5A4E782B7884750023707E /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A4E772B7884750023707E /* UserProfile.swift */; };
+		5B5A4E7D2B7885330023707E /* UpdateUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A4E7C2B7885330023707E /* UpdateUserProfileViewController.swift */; };
+		5B5A4E812B7885E90023707E /* UpdateUserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A4E802B7885E90023707E /* UpdateUserProfileView.swift */; };
+		5B5A4E832B7891C90023707E /* NSObject+Id.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A4E822B7891C90023707E /* NSObject+Id.swift */; };
+		5B5A4E852B7892D30023707E /* BaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A4E842B7892D30023707E /* BaseTableView.swift */; };
+		5B5A4E882B78A54C0023707E /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A4E872B78A54C0023707E /* MainTabViewController.swift */; };
 		5B6554342B6A92E6001815F5 /* UIView+addSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6554332B6A92E6001815F5 /* UIView+addSubviews.swift */; };
 		5B6554362B6A9638001815F5 /* DramaSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6554352B6A9638001815F5 /* DramaSearchViewController.swift */; };
 		5B6979F22B70E52300D59E3F /* CountryInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6979F12B70E52300D59E3F /* CountryInfoCell.swift */; };
@@ -87,6 +95,14 @@
 		5B5666722B6E227100EE904A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		5B5666742B6E2E7C00EE904A /* PosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterView.swift; sourceTree = "<group>"; };
 		5B5956732B6BF1330085F573 /* AggregateCreditsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregateCreditsEntity.swift; sourceTree = "<group>"; };
+		5B5A4E732B7882870023707E /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		5B5A4E752B7882950023707E /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		5B5A4E772B7884750023707E /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		5B5A4E7C2B7885330023707E /* UpdateUserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserProfileViewController.swift; sourceTree = "<group>"; };
+		5B5A4E802B7885E90023707E /* UpdateUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserProfileView.swift; sourceTree = "<group>"; };
+		5B5A4E822B7891C90023707E /* NSObject+Id.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Id.swift"; sourceTree = "<group>"; };
+		5B5A4E842B7892D30023707E /* BaseTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableView.swift; sourceTree = "<group>"; };
+		5B5A4E872B78A54C0023707E /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		5B6554332B6A92E6001815F5 /* UIView+addSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addSubviews.swift"; sourceTree = "<group>"; };
 		5B6554352B6A9638001815F5 /* DramaSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DramaSearchViewController.swift; sourceTree = "<group>"; };
 		5B6979F12B70E52300D59E3F /* CountryInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryInfoCell.swift; sourceTree = "<group>"; };
@@ -240,6 +256,82 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
+		5B5A4E6C2B7882270023707E /* UserProfileScene */ = {
+			isa = PBXGroup;
+			children = (
+				5B5A4E792B7885140023707E /* UpdateUserProfile */,
+				5B5A4E6F2B7882680023707E /* UserProfile */,
+			);
+			path = UserProfileScene;
+			sourceTree = "<group>";
+		};
+		5B5A4E6F2B7882680023707E /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				5B5A4E722B78827E0023707E /* Model */,
+				5B5A4E712B7882790023707E /* Controller */,
+				5B5A4E702B7882740023707E /* View */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		5B5A4E702B7882740023707E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5B5A4E732B7882870023707E /* UserProfileView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5B5A4E712B7882790023707E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5B5A4E752B7882950023707E /* UserProfileViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5B5A4E722B78827E0023707E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5B5A4E772B7884750023707E /* UserProfile.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5B5A4E792B7885140023707E /* UpdateUserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				5B5A4E7B2B7885270023707E /* Controller */,
+				5B5A4E7A2B7885220023707E /* View */,
+			);
+			path = UpdateUserProfile;
+			sourceTree = "<group>";
+		};
+		5B5A4E7A2B7885220023707E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5B5A4E802B7885E90023707E /* UpdateUserProfileView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5B5A4E7B2B7885270023707E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5B5A4E7C2B7885330023707E /* UpdateUserProfileViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5B5A4E862B78A53D0023707E /* MainTabScene */ = {
+			isa = PBXGroup;
+			children = (
+				5B5A4E872B78A54C0023707E /* MainTabViewController.swift */,
+			);
+			path = MainTabScene;
+			sourceTree = "<group>";
+		};
 		5B6554372B6AA96D001815F5 /* DramaSearch */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +407,7 @@
 				5B7F97F62B6B7379005359C9 /* String+Extension.swift */,
 				5B4C334D2B6CC2310099BC22 /* UIViewController+Extension.swift */,
 				5B4C334F2B6CCBEC0099BC22 /* UIView+Extension.swift */,
+				5B5A4E822B7891C90023707E /* NSObject+Id.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -331,6 +424,8 @@
 		5B742C7D2B6A5A7A0083E804 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				5B5A4E862B78A53D0023707E /* MainTabScene */,
+				5B5A4E6C2B7882270023707E /* UserProfileScene */,
 				5B4C33592B6CCE1F0099BC22 /* Pager */,
 				5B4C33522B6CCDAD0099BC22 /* OnboardingScene */,
 				5B742C8C2B6A5DEE0083E804 /* DramaScene */,
@@ -342,9 +437,8 @@
 		5B742C7E2B6A5A830083E804 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				5B6BA91B2B6FA967001513EE /* UIViewPreview.swift */,
-				5B742C9A2B6A649D0083E804 /* Component */,
 				5B742C842B6A5BCA0083E804 /* Base */,
+				5B6BA91B2B6FA967001513EE /* UIViewPreview.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -357,6 +451,7 @@
 				5B742C822B6A5BC50083E804 /* BaseViewController.swift */,
 				5B7F97E42B6B2E83005359C9 /* BaseView.swift */,
 				5B4C33632B6CE0F50099BC22 /* BasePageViewController.swift */,
+				5B5A4E842B7892D30023707E /* BaseTableView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -375,6 +470,7 @@
 		5B742C8C2B6A5DEE0083E804 /* DramaScene */ = {
 			isa = PBXGroup;
 			children = (
+				5B742C9A2B6A649D0083E804 /* Component */,
 				5B6554372B6AA96D001815F5 /* DramaSearch */,
 				5B742CA02B6A6A630083E804 /* DramaDetail */,
 				5B742C912B6A5E730083E804 /* DramaHome */,
@@ -711,6 +807,8 @@
 				5B742C5C2B69EBAB0083E804 /* TVService.swift in Sources */,
 				5B56666F2B6E1E2900EE904A /* UserDefaultManager.swift in Sources */,
 				5BD924692B68EF7B0027B869 /* TvAPI.swift in Sources */,
+				5B5A4E7D2B7885330023707E /* UpdateUserProfileViewController.swift in Sources */,
+				5B5A4E812B7885E90023707E /* UpdateUserProfileView.swift in Sources */,
 				5B7F97CA2B6B1820005359C9 /* PosterImageView.swift in Sources */,
 				5B742C832B6A5BC60083E804 /* BaseViewController.swift in Sources */,
 				5B7F97E52B6B2E83005359C9 /* BaseView.swift in Sources */,
@@ -720,10 +818,13 @@
 				5BD924502B68EEF40027B869 /* AppDelegate.swift in Sources */,
 				5B6554342B6A92E6001815F5 /* UIView+addSubviews.swift in Sources */,
 				5B6554362B6A9638001815F5 /* DramaSearchViewController.swift in Sources */,
+				5B5A4E882B78A54C0023707E /* MainTabViewController.swift in Sources */,
 				5B7F97F22B6B616F005359C9 /* Collection+Extension.swift in Sources */,
 				5B9D9FE32B69140B00A4642F /* Encodable+toDictionary.swift in Sources */,
 				5B9D9FE62B6917B600A4642F /* Network.swift in Sources */,
+				5B5A4E742B7882870023707E /* UserProfileView.swift in Sources */,
 				5B7F97D12B6B1ADA005359C9 /* PosterLabel.swift in Sources */,
+				5B5A4E852B7892D30023707E /* BaseTableView.swift in Sources */,
 				5B4C334E2B6CC2310099BC22 /* UIViewController+Extension.swift in Sources */,
 				5B742CA72B6A6F3B0083E804 /* AppConfiguration.swift in Sources */,
 				5B7F97E12B6B2E3A005359C9 /* DramaDetailView.swift in Sources */,
@@ -734,6 +835,7 @@
 				5B742C5A2B69EAF10083E804 /* AppService.swift in Sources */,
 				5BD924522B68EEF40027B869 /* SceneDelegate.swift in Sources */,
 				5B742CAB2B6A72CF0083E804 /* AppAppearance.swift in Sources */,
+				5B5A4E832B7891C90023707E /* NSObject+Id.swift in Sources */,
 				5B9D9FE92B69187800A4642F /* NetworkError.swift in Sources */,
 				5B9D9FDD2B690CB900A4642F /* TargetType.swift in Sources */,
 				5B7F97FA2B6B855A005359C9 /* DramaGroupCell.swift in Sources */,
@@ -742,6 +844,7 @@
 				5B7F97F52B6B6B99005359C9 /* DramaDescriptionCell.swift in Sources */,
 				5B742CB72B6A73C00083E804 /* Style.swift in Sources */,
 				5B4C33622B6CCEA10099BC22 /* PagerUsingUICollectionVC.swift in Sources */,
+				5B5A4E762B7882950023707E /* UserProfileViewController.swift in Sources */,
 				5B742CA52B6A6A830083E804 /* DramaDetailViewController.swift in Sources */,
 				5B742CBD2B6A74670083E804 /* IconStyle.swift in Sources */,
 				5B5666732B6E227100EE904A /* OnboardingViewController.swift in Sources */,
@@ -755,6 +858,7 @@
 				5B3A09202B72F8A400A3B935 /* DramaHomeView.swift in Sources */,
 				5B9D9FE12B6913C900A4642F /* RequestParams.swift in Sources */,
 				5B742CAE2B6A72FA0083E804 /* ColorStyle.swift in Sources */,
+				5B5A4E782B7884750023707E /* UserProfile.swift in Sources */,
 				5B5666712B6E1E3500EE904A /* UserDefaultWrapper.swift in Sources */,
 				5B742CC72B6A75BE0083E804 /* UIButton+Style.swift in Sources */,
 				5B742CC42B6A75560083E804 /* ComponentStyle.swift in Sources */,

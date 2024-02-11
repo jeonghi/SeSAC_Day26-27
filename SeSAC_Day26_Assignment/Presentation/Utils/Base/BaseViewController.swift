@@ -26,6 +26,14 @@ class BaseViewController: UIViewController {
     }
   }
   
+  required init?(coder: NSCoder) {
+    super.init(coder: coder)
+  }
+  
+  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+  }
+  
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -35,7 +43,10 @@ class BaseViewController: UIViewController {
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    navigationItem.backButtonTitle = ""
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
   }
 }
 
