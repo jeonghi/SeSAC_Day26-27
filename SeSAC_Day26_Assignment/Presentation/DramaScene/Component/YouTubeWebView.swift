@@ -13,7 +13,7 @@ import Then
 class YouTubeWebView: BaseView {
   
   // 계산 프로퍼티로 선언
-  var baseURL: String { "https://www.youtube.com/watch?v=" }
+  
   lazy var webView: WKWebView = .init().then {
     $0.navigationDelegate = self
   }
@@ -28,9 +28,13 @@ extension YouTubeWebView {
   
   func loadVideo(withKey key: String?){
     guard let key, !key.isEmpty else { return }
-    if let url = URL(string: "\(baseURL)\(key)") {
+    if let url = URL(string: "https://www.youtube.com/embed/\(key)") {
       webView.load(URLRequest(url: url))
     }
+  }
+  
+  override func configView() {
+    self.backgroundColor = Style.Foundation.Color.backgroundColor
   }
   
   override func configLayout() {

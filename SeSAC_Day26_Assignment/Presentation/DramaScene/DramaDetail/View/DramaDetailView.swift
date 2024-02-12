@@ -27,8 +27,8 @@ class DramaDetailView: BaseView {
     }
     
     youtubeWebView.snp.makeConstraints {
-      $0.height.equalTo(150)
       $0.width.equalToSuperview()
+      $0.height.equalTo(youtubeWebView.snp.width).multipliedBy(9.0/16.0) // 16:9 비율
     }
   }
   

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5B3A09202B72F8A400A3B935 /* DramaHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3A091F2B72F8A400A3B935 /* DramaHomeView.swift */; };
 		5B4C2B4D2B7904E800F0883F /* YouTubeWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C2B4C2B7904E800F0883F /* YouTubeWebView.swift */; };
+		5B4C2B4F2B79ED3F00F0883F /* TVVideoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C2B4E2B79ED3F00F0883F /* TVVideoEntity.swift */; };
 		5B4C334E2B6CC2310099BC22 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C334D2B6CC2310099BC22 /* UIViewController+Extension.swift */; };
 		5B4C33502B6CCBEC0099BC22 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C334F2B6CCBEC0099BC22 /* UIView+Extension.swift */; };
 		5B4C335E2B6CCE880099BC22 /* PagerUsingUIPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C335D2B6CCE880099BC22 /* PagerUsingUIPageVC.swift */; };
@@ -86,6 +87,7 @@
 /* Begin PBXFileReference section */
 		5B3A091F2B72F8A400A3B935 /* DramaHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DramaHomeView.swift; sourceTree = "<group>"; };
 		5B4C2B4C2B7904E800F0883F /* YouTubeWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeWebView.swift; sourceTree = "<group>"; };
+		5B4C2B4E2B79ED3F00F0883F /* TVVideoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVVideoEntity.swift; sourceTree = "<group>"; };
 		5B4C334D2B6CC2310099BC22 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		5B4C334F2B6CCBEC0099BC22 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		5B4C335D2B6CCE880099BC22 /* PagerUsingUIPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerUsingUIPageVC.swift; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 			children = (
 				5B742C642B6A0F4E0083E804 /* TVShowEntity.swift */,
 				5B5956732B6BF1330085F573 /* AggregateCreditsEntity.swift */,
+				5B4C2B4E2B79ED3F00F0883F /* TVVideoEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -824,6 +827,7 @@
 				5B5A4E882B78A54C0023707E /* MainTabViewController.swift in Sources */,
 				5B7F97F22B6B616F005359C9 /* Collection+Extension.swift in Sources */,
 				5B9D9FE32B69140B00A4642F /* Encodable+toDictionary.swift in Sources */,
+				5B4C2B4F2B79ED3F00F0883F /* TVVideoEntity.swift in Sources */,
 				5B9D9FE62B6917B600A4642F /* Network.swift in Sources */,
 				5B5A4E742B7882870023707E /* UserProfileView.swift in Sources */,
 				5B7F97D12B6B1ADA005359C9 /* PosterLabel.swift in Sources */,
