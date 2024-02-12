@@ -8,31 +8,15 @@
 import UIKit
 import Then
 
-class DramaDetailView: UIView {
+class DramaDetailView: BaseView {
+  
+  let youtubeWebView: YouTubeWebView = .init()
   
   lazy var tableView: UITableView = .init(frame: .zero, style: .grouped).then {
     $0.backgroundColor = .clear
     $0.register(DramaGroupCell.self, forCellReuseIdentifier: "DramaGroupCell")
     $0.register(CountryInfoCell.self, forCellReuseIdentifier: "CountryInfoCell")
-  }
-
-  
-  override init(frame: CGRect){
-    super.init(frame: frame)
-  }
-  
-  required init?(coder: NSCoder) {
-    super.init(coder: coder)
-    fatalError("init(coder:) has not been implemented")
-  }
-  
-  convenience init(){
-    self.init(frame: .zero)
-    configBase()
-  }
-  
-  override func configView() {
-    
+    $0.tableHeaderView = youtubeWebView
   }
   
   override func configLayout() {
@@ -40,6 +24,11 @@ class DramaDetailView: UIView {
       $0.top.equalTo(self.safeAreaLayoutGuide)
       $0.bottom.equalTo(self.safeAreaLayoutGuide)
       $0.horizontalEdges.equalToSuperview()
+    }
+    
+    youtubeWebView.snp.makeConstraints {
+      $0.height.equalTo(150)
+      $0.width.equalToSuperview()
     }
   }
   

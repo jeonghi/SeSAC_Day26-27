@@ -16,6 +16,7 @@ enum TvAPI {
   case getTVDetails(id: Int, language: String)
   case getTVRecommendations(id: Int, language: String)
   case getTVAggregateCredits(id: Int, language: String)
+  case getTVVideos(id: Int, language: String)
 }
 
 extension TvAPI: TargetType {
@@ -40,6 +41,8 @@ extension TvAPI: TargetType {
       return "/tv/\(id)/recommendations"
     case let .getTVAggregateCredits(id, _):
       return "/tv/\(id)/aggregate_credits"
+    case let .getTVVideos(id, _):
+      return "/tv/\(id)/videos"
     }
   }
   
@@ -51,7 +54,8 @@ extension TvAPI: TargetType {
          .getTopRatedTVs(let language),
          .getTVDetails(_, let language),
          .getTVRecommendations(_, let language),
-         .getTVAggregateCredits(_, let language):
+         .getTVAggregateCredits(_, let language),
+         .getTVVideos(_, let language):
       return .query(["language": language])
     case let .searchTV(query, language):
       return .query(["language": language, "query": query])

@@ -28,6 +28,8 @@ protocol TVServiceType {
   func getTVRecommendations(id: Int, language: String, completion: @escaping (TVShowBatchResponseResult) -> Void)
   
   func getTVAggregateCredits(id: Int, language: String, completion: @escaping ((Result<AggregateCreditsEntity.Response?, NetworkError>) -> Void))
+  
+//  func getTVVideos(id: Int, language: String, completion: @escaping (String) -> Void)
 }
 
 final class TVService: TVServiceType {
@@ -65,4 +67,8 @@ final class TVService: TVServiceType {
 //    return network.request(.getTVAggregateCredits(id: id, language: language), responseType: AggregateCreditsEntity.Response.self, completion: completion)
     return network.requestUrlSession(.getTVAggregateCredits(id: id, language: language), responseType: AggregateCreditsEntity.Response.self, completion: completion)
   }
+  
+//  func getTVVideos(id: Int, language: String = Locale.currentLanguageAndCountryCode, completion: @escaping (String) -> Void) {
+//    return network.request(.getTVVideos(id: id, language: language), responseType: <#T##Decodable.Protocol#>, completion: <#T##((Result<Decodable?, NetworkError>) -> Void)##((Result<Decodable?, NetworkError>) -> Void)##(Result<Decodable?, NetworkError>) -> Void#>)
+//  }
 }

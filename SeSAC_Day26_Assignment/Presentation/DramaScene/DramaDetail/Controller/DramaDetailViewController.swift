@@ -21,6 +21,7 @@ final class DramaDetailViewController: BaseViewController {
   lazy var dramaDetailView: DramaDetailView = .init().then {
     $0.tableView.delegate = self
     $0.tableView.dataSource = self
+    $0.youtubeWebView.loadVideo(withKey: "mrPZEVAthQs")
   }
   
   var sections: [Section] = Section.allCases
@@ -57,17 +58,16 @@ final class DramaDetailViewController: BaseViewController {
   
   // MARK: Base Configuration
   override func configHierarchy() {
-    
   }
   
   override func configLayout() {
-
   }
   
   override func configView() {
     navigationItem.title = "드라마 상세보기"
   }
 }
+
 
 // MARK: 네트워크
 extension DramaDetailViewController {

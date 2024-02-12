@@ -11,7 +11,12 @@ import Then
 class UserProfileViewController: BaseViewController {
   
   // MARK: Property
-  var userProfile: UserProfile? = .init(UserProfile(nickName: "곰돌이", userName: "정환", introduction: "개발자입니다", websiteUrl: "https://naver.com"))
+  var userProfile: UserProfile? = .init(UserProfile(
+    nickName: "곰돌이",
+    userName: "정환",
+    introduction: "개발자입니다",
+    websiteUrl: "https://naver.com"
+  ))
   
   let userProfileView: UserProfileView = .init()
   
