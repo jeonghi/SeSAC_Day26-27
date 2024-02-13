@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PosterImageView: UIImageView {
   
@@ -45,6 +46,7 @@ class PosterImageView: UIImageView {
   private func loadImage() {
     guard let url = imageUrl else { return }
     self.kf.setImage(with: url)
+    self.applyGradient()
   }
   
   func configurePosterImageView(_ image: UIImage) {

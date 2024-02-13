@@ -34,6 +34,7 @@
 		5B6979F22B70E52300D59E3F /* CountryInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6979F12B70E52300D59E3F /* CountryInfoCell.swift */; };
 		5B6BA91C2B6FA967001513EE /* UIViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA91B2B6FA967001513EE /* UIViewPreview.swift */; };
 		5B6BA91F2B6FF679001513EE /* CastingInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6BA91E2B6FF679001513EE /* CastingInfoCell.swift */; };
+		5B6C4F832B7A56D0006BC64F /* UImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6C4F822B7A56D0006BC64F /* UImage+Extension.swift */; };
 		5B742C4F2B69CF580083E804 /* TMDbAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B742C4E2B69CF580083E804 /* TMDbAPIResponse.swift */; };
 		5B742C5A2B69EAF10083E804 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B742C592B69EAF10083E804 /* AppService.swift */; };
 		5B742C5C2B69EBAB0083E804 /* TVService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B742C5B2B69EBAB0083E804 /* TVService.swift */; };
@@ -112,6 +113,7 @@
 		5B6979F12B70E52300D59E3F /* CountryInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryInfoCell.swift; sourceTree = "<group>"; };
 		5B6BA91B2B6FA967001513EE /* UIViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewPreview.swift; sourceTree = "<group>"; };
 		5B6BA91E2B6FF679001513EE /* CastingInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastingInfoCell.swift; sourceTree = "<group>"; };
+		5B6C4F822B7A56D0006BC64F /* UImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UImage+Extension.swift"; sourceTree = "<group>"; };
 		5B742C4E2B69CF580083E804 /* TMDbAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDbAPIResponse.swift; sourceTree = "<group>"; };
 		5B742C592B69EAF10083E804 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		5B742C5B2B69EBAB0083E804 /* TVService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVService.swift; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 				5B4C334D2B6CC2310099BC22 /* UIViewController+Extension.swift */,
 				5B4C334F2B6CCBEC0099BC22 /* UIView+Extension.swift */,
 				5B5A4E822B7891C90023707E /* NSObject+Id.swift */,
+				5B6C4F822B7A56D0006BC64F /* UImage+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -855,6 +858,7 @@
 				5B742CA52B6A6A830083E804 /* DramaDetailViewController.swift in Sources */,
 				5B742CBD2B6A74670083E804 /* IconStyle.swift in Sources */,
 				5B5666732B6E227100EE904A /* OnboardingViewController.swift in Sources */,
+				5B6C4F832B7A56D0006BC64F /* UImage+Extension.swift in Sources */,
 				5B742CC12B6A74C70083E804 /* FoundationStyle.swift in Sources */,
 				5B5666752B6E2E7C00EE904A /* PosterView.swift in Sources */,
 				5B742C962B6A5EB00083E804 /* DramaHomeViewController.swift in Sources */,

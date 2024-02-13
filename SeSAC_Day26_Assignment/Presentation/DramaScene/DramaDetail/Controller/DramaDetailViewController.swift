@@ -21,7 +21,6 @@ final class DramaDetailViewController: BaseViewController {
   lazy var dramaDetailView: DramaDetailView = .init().then {
     $0.tableView.delegate = self
     $0.tableView.dataSource = self
-    $0.youtubeWebView.loadVideo(withKey: "mrPZEVAthQs")
   }
   
   var sections: [Section] = Section.allCases
@@ -49,6 +48,7 @@ final class DramaDetailViewController: BaseViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     if let dramaId { callRequest(dramaId) }
+    self.dramaDetailView.tableView.reloadData()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -75,6 +75,26 @@ extension DramaDetailViewController {
     {
       self.isLoading = true
       let group = DispatchGroup()
+      
+      group.enter()
+      self.tvService.getTVVideos(id: $0) { res in
+        switch res {
+        case .success(let success):
+          print(success?.results)
+          print(success)
+          guard let key = success?.results.first?.key else {
+            print("없음")
+            break
+          }
+//          DispatchQueue.main.async {
+            self.dramaDetailView.youtubeWebView.loadVideo(withKey: key)
+//          }
+          break
+        case .failure(let error):
+          break
+        }
+        group.leave()
+      }
       
       group.enter()
       self.tvService.getTVDetails(id: $0) { res in
@@ -214,7 +234,7 @@ extension DramaDetailViewController: UITableViewDelegate, UITableViewDataSource 
       let headerView = UIView()
       headerView.backgroundColor = UIColor.clear
       
-      let headerLabel = UILabel(frame: CGRect(x: 16, y: 0, width: tableView.bounds.size.width, height: 40))
+      let headerLabel = UILabel(frame: CGRect(x: 5, y: 0, width: tableView.bounds.size.width, height: 40))
       headerLabel.font = Style.Foundation.Font.title2
       headerLabel.textColor = Style.Foundation.Color.secondary
       headerLabel.text = "\(sections[section].rawValue)"

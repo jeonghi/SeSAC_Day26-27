@@ -17,7 +17,7 @@ enum TVVideoEntity {
   
   struct Response: Decodable {
     let id: Int // 드라마 id
-    let results: [Video]?
+    let results: [Video]
   }
   
   struct Video: Decodable {

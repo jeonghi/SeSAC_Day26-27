@@ -21,13 +21,17 @@ extension Network {
     }
     
     #if(DEBUG)
-//    dump(urlRequest.url)
+    print("⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️")
+    dump(urlRequest.url)
     #endif
     
     AF.request(urlRequest, interceptor: nil)
       .responseDecodable(of: R.self) { res in
         switch res.result {
         case .success(let success):
+          print("⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️")
+          print(success)
+          print("⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️")
           completion(.success(success))
         case .failure(let error):
           #if(DEBUG)

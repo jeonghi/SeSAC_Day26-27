@@ -10,7 +10,7 @@ import Foundation
 extension Locale {
   static var currentLanguageCode: String {
 //    return Locale.current.language.languageCode?.identifier ?? "kr"
-    return "kr"
+    return "ko"
   }
   
   static var currentCountryCode: String {
